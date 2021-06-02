@@ -104,7 +104,7 @@ def GetPearsonsCoeff ( x , y ) :
     denom = denom ** 0.5
     return numer / denom
 
-def GetSpearsonsCoeff ( x , y ) :
+def GetSpearmansCoeff ( x , y ) :
     rank_x = list(enumerate(x))
     rank_x.sort(key = lambda x : -x[1])
     rank_x = [first for first, second in rank_x]
@@ -136,4 +136,4 @@ if __name__ == '__main__' :
 
     print(' MEAN SQAURED ERROR :', GetMSE(predicted_scores, true_scores))
     print(' PEARSON\'S COEFFICIENT :', GetPearsonsCoeff(predicted_scores, true_scores))
-    print(' SPEARSON\'S COEFFICIENT :', GetSpearsonsCoeff(predicted_scores, true_scores))
+    print(' SPEARMAN\'S COEFFICIENT :', GetSpearmansCoeff(predicted_scores, true_scores))
