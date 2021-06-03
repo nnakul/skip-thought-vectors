@@ -197,7 +197,7 @@ if __name__ == '__main__' :
     # SR_MODEL = torch.load('MODELS/SEMANTIC_RELATEDNESS_NN') # to resume training
 
     BATCH_SIZE = 64
-    TOTAL_EPOCHS = 600
+    TOTAL_EPOCHS = 400
     LEARNING_RATE = 0.001
 
     SR_MODEL.train()
