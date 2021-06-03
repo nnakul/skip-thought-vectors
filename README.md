@@ -14,12 +14,14 @@ The output of both the decoders is a sequence of vectors that represents the dis
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/66432513/120628730-a7816600-c482-11eb-834c-e5774380c5b9.png" width = '450' height = '320'> 
 
-The training text corpus consists of books of various genres, taken from the <a href = "https://www.gutenberg.org/"> *Gutenberg Project* </a>. Though the training corpus originally has about 96,000 sentences, only the first 12,000 are used to train the model so as to restrict the vocabulary to a relatively smaller size (*11,901*).
+The training text corpus consists of books of various genres, taken from the <a href = "https://www.gutenberg.org/"> *Gutenberg Project* </a>. Though the training corpus originally has about 96,000 sentences, only the first 12,000 are used to train the model so as to restrict the vocabulary to a relatively smaller size (almost *12,000*).
 
 ## Vocabulary Expansion
 *Section 2.2* (*Vocabulary expansion*) of the paper describes how to expand our encoder’s vocabulary to words it has not seen during training. For this purpose, a shallow (only one layer) unregularized feed-forward neural network has to be trained on the vector representations of words common between the vocabularies of our *Skip Thoughts Model* and the *Google's Word2Vec Model*. The neural network basically creates a mapping from the 300-dimension *Word2Vec* embedding space to the 256-dimension embedding-space of our *Skip Thoughts* model, parameterized by a single weight matrix (dense layer). Like this, for a word that does not belong to our model's vocabulary, the vector representation of that word in the *Google's Word2Vec* embedding space can be mapped to our model's embedding space which can hence be further fed into the trained encoder to get the *thought* of the sentence of which it is a token.
 
-The original vocabulary size of our model was *11,901*. The vocabulary size was expanded to *10 Million*. The neural network for vocabulary expansion was trained on *11,192* samples (exactly *11,192* out of *11,901* words in our model's vocabulary were also present in the *Word2Vec*'s vocabulary). The *Vocabulary Expansion NN* was trained for *500 epochs* (took less than *3 minutes*) at a learning rate of *0.001*.
+*VOCABULARY_EXPANSION.py* source code implements this architecture. The original vocabulary size of our model was *11,901*. The vocabulary size was expanded to *10 Million*. The neural network for vocabulary expansion was trained on *11,192* samples (exactly *11,192* out of *11,901* words in our model's vocabulary were also present in the *Word2Vec*'s vocabulary). The *Vocabulary Expansion NN* was trained for *500 epochs* (took less than *3 minutes*) at a learning rate of *0.001*.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/66432513/120634103-815ec480-c488-11eb-9ab7-7cef277da55f.png" width = '450' height = '320'>
+
+During analysis and evaluation of the overall model, it was observed that the model appreciates the semantic meaning of the sentences containing the words that did not originally belong to our model's vocabulary, and their relationships with other similar sentences.
 
