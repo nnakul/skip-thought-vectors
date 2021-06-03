@@ -13,3 +13,9 @@ The output of both the decoders is a sequence of vectors that represents the dis
 *SKIP_THOUGHTS_ARCH.py* source code implements *Skip Thoughts Model* architecture. The model was trained for *80 epochs*, that took almost *32 hours*. The learning rate was reduced discretely from *0.01* to *0.0001* (the bold orange line indicates the point when learning rate was reduced from 0.01 to 0.001).
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/66432513/120628730-a7816600-c482-11eb-834c-e5774380c5b9.png" width = '450' height = '320'> 
+
+The training text corpus consists of books of various genres, taken from the <a href = "https://www.gutenberg.org/"> *Gutenberg Project* </a>. Though the training corpus originally has about 96,000 sentences, only the first 12,000 are used to train the model so as to restrict the vocabulary to a relatively smaller size (*11,901*).
+
+## Vocabulary Expansion
+
+
