@@ -27,3 +27,11 @@ The training text corpus consists of books of various genres, taken from the <a 
 
 During analysis and evaluation of the overall model, it was observed that the model appreciates the semantic meaning of the sentences containing the words that did not originally belong to our model's vocabulary, and their relationships with other similar sentences.
 
+## Semantic Relatedness
+
+## Compilation
+
+## Evaluation
+
+## Performance On Analogical Tasks
+
