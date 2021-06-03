@@ -1,6 +1,8 @@
 ## About
 The project is inspired by the work of *Kiros et al.* published in the paper <a href = "https://arxiv.org/pdf/1506.06726.pdf"> *Skip-Thought Vectors* </a>. In this paper, the authors describe an approach for unsupervised learning of a generic, distributed sentence encoder. Using the continuity of text from books, an *encoder-decoder model* can be trained that tries to reconstruct the surrounding sentences of an encoded passage. Sentences that share semantic and syntactic properties are thus mapped to similar vector representations. The authors next introduce a simple *vocabulary expansion* method to encode words that were not seen as part of training, allowing us to expand our vocabulary to millions of words. The end result of the implementation will be an off-the-shelf encoder that can produce highly generic sentence representations that are robust and perform well in practice.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/66432513/120635222-d7803780-c489-11eb-860f-eaefede9bf35.png" width = '830' height = '160'> 
+
 ## Skip Thoughts Architecture
 The architecture of the model is decribed in detail in *section 2.1* (*Inducing skip-thought vectors*) of the paper. On a high level, the model consists of a *GRU encoder* and two *thought-biased GRU decoders*, one for decoding the previous sentence and the other for decoding the next sentence. The encoder takes as input a sequence of word embeddings representing the distinct words in the center sentence. The output of the encoder is a sequence of vectors, the last of which is the vector representation (*thought*) of the sentence.<br>
 
