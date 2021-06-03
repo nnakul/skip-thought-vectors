@@ -25,10 +25,19 @@ The training text corpus consists of books of various genres, taken from the <a 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/66432513/120634103-815ec480-c488-11eb-9ab7-7cef277da55f.png" width = '450' height = '320'>
 
-During analysis and evaluation of the overall model, it was observed that the model appreciates the semantic meaning of the sentences containing the words that did not originally belong to our model's vocabulary, and their relationships with other similar sentences.
+During analysis and evaluation of the overall model, it was observed that the model appreciates the semantic meaning of the sentences containing the words that did not originally belong to our model's vocabulary, and their relationships with other similar sentences. Download *Google*'s pre-trained *Word2Vec* model from <a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing"> here <a/> and save it in the *MODELS* folder.
 
 ## Semantic Relatedness
+Though the encoder-decoder model, along with the expanded vocabulary, is capable of encoding pretty much any *English* sentence into a vector (as long as the words in the sentence fall in the *10 Million* words large vocabulary), it is impossible to comprehend the semantic relationship between two sentences just by merely looking at their thoughts. To be able to understand the correctness of the *thoughts* much more intuitively, it is imperitive to have another model that takes a pair of sentences as input and generates a score in a small range of say 1-5, that indicates how semantically similar the two sentences are. For this purpose, a feed-forward neural network (a *logistic regression classifier*) is designed, that consists of two hidden dense layers. The architecture of the model is explained in *section 3.2* (*Semantic relatedness*) of the paper, along with the scheme to represent a pair of sentences (concatenating component-wise product and absolute difference of their respective *thoughts*).
 
+*SEMANTIC_RELATEDNESS.py* source code implements this architecture. 55% of the *SICK* (Sentences Involving Compositional Knowledge) dataset is used to train the *Semantic Relatedness NN*. The training set is already refined, encoded, packed into a pickle and saved in *DATA* folder. The model was trained for *400 epochs* (took only *6 minutes*) at a learning rate of *0.001*.
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/66432513/120641000-be2eb980-c490-11eb-857e-bae756f9171c.png" width = '450' height = '320'>
+ 
+```css
+  hello
+```
+  
 ## Compilation
 
 ## Evaluation
