@@ -71,13 +71,15 @@ def GetSentencePairVector ( sent1 , sent2 ) :
     vec = torch.cat([prod, diff], 0)
     return vec
 
-def GetSimilarityRelationScore ( sent1 , sent2 ) :
+def GetSimilarityRelationScore ( sent1 , sent2 , precision = None ) :
     vec = GetSentencePairVector(sent1, sent2)
     if vec is None : return None
     inp = torch.stack([vec])
     score_dist = SR_MODEL(inp)[0]
-    scores = torch.tensor([1., 2., 3., 4., 5.])
-    return round(torch.dot(scores, score_dist).item(), 3)
+    possible_scores = torch.tensor([1., 2., 3., 4., 5.])
+    score = torch.dot(possible_scores, score_dist).item()
+    if not precision is None : return round(score, precision)
+    else : return score
 
 def PredictScores ( dataset ) :
     true_scores = list()
