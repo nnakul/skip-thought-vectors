@@ -62,8 +62,8 @@ The original model (by *Kiros et al.*) gave the following values of the evaluati
     Pearson’s correlation coefficient :   0.85846
     Spearman’s correlation coefficient :  0.79161
 
-The difference in the performances can be explained by the relatively much smaller training dataset used in this case, to not exhaust the memory while training. This model was trained on *CPU* (due to unavailability of *GPU*) that slowed down the training process. Besides, the quality of dataset can also be responsible because the training corpus used in this project was self-made.
- 
+The difference in the performances can be explained by the relatively much smaller training dataset used in our case, to not exhaust the memory while training. Our model was trained on *CPU* (due to unavailability of *GPU*) that slowed down the training process. Besides, the quality of dataset can also be responsible because the training corpus used in this project was not ready-made.
+
 ## Performance On Analogical Tasks
 The performance of the *Skip Thoughts Model* with expanded vocabulary is checked on the basis of its ability to quantify the semantic relatedness between two sentences. Given two sentences, a score between 1 and 5 is generated that is indicative of the extent of relationship between the sentences. The callibre of the model is judged on the basis of how well it performs in the analogical reasoning tasks and how well it is able to find a common relational system between two situations, exemplars, or domains.
 
