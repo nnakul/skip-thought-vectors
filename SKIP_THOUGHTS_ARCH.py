@@ -4,6 +4,7 @@ import numpy as np
 from time import time
 from random import shuffle
 from collections import Counter
+import nltk
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
